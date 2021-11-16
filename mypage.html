@@ -1,94 +1,68 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>MyPage</title>
-    <link rel="stylesheet" type="text/css" href="mypage.css">
+  <meta charset="utf-8">
+  <title>MyPage</title>
+  <link rel="stylesheet" type="text/css" href="mypage.css">
 </head>
 
 <body>
-    <ul class="navbar">
-        <li class=active><a>Home</a></li>
-        <li><a>Favourite Things</a></li>
-        <li><a>Gallery</a></li>
-        <li><a>Blog</a></li>
-        <li style="float:right"><a>Give Us Feedback!</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <center><img src="Logo.png" alt="logo" class="logo"></center>
-    <h1>
-        <center> Welcome To My Home Page! </center>
-    </h1>
-    <p>
-        <center> Welcome, my name is Stefan and this is my first webpage, I hope you like it </center>
-    </p>
+  <ul class="navbar">
+    <li class=active><a>Home</a></li>
+    <li><a href="favthings.html">Favourite Things</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <center><img src="Logo.png" alt="logo" class="logo"></center>
+  <h1>
+    <center> Welcome To My Home Page! </center>
+  </h1>
+  <p>
+    <center> Welcome, my name is Stefan and this is my first webpage, I hope you like it </center>
+  </p>
 
-    <br>
-    <fieldset>
-        <legend>
-            <h2> About Me </h2>
-        </legend>
-        <p> <img src="https://i.pinimg.com/550x/ce/29/e4/ce29e4ce904aa6128f138e6dd4e1b9e6.jpg" alt="slika"
-                class="image">
-            My name is Stefan Krsteski, im studying at FEIT, currently fifth semester, third year.<br>
-            I'm making this webpage because it's a project for one of my classes.<br>
-            I'm not that creative, so i dont know what to write in this section, <br>
-            so in order to have a well built page i will just leave this.
-        </p>
-    </fieldset>
-    <h2> Calendar </h2>
-    <div class="month">
-        <ul>
-            <li class="prev">&#10094;</li>
-            <li class="next">&#10095;</li>
-            <li>October<br><span style="font-size:18px">2021</span></li>
-        </ul>
+  <br>
+  <fieldset>
+    <legend>
+      <h2> About Me </h2>
+      <br>
+    </legend>
+    <div style="display: inline;">
+      <p>
+        My name is Stefan Krsteski, im studying at FEIT, currently fifth semester, third year.<br>
+        I'm making this webpage because it's a project for one of my classes.<br>
+        I'm not that creative, so i dont know what to write in this section, <br>
+        so in order to have a well built page i will just leave this.
+      </p>
     </div>
+  </fieldset>
+  <h2> Calendar </h2>
+  <div class="container">
+    <div class="calendar">
+      <div class="month">
+        <i class="fas fa-angle-left prev"></i>
+        <div class="date">
+          <h1></h1>
+          <p></p>
+        </div>
+        <i class="fas fa-angle-right next"></i>
+      </div>
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="days"></div>
+    </div>
+  </div>
 
-    <ul class="weekdays">
-        <li>Mo</li>
-        <li>Tu</li>
-        <li>We</li>
-        <li>Th</li>
-        <li>Fr</li>
-        <li>Sa</li>
-        <li>Su</li>
-    </ul>
-
-    <ul class="days">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-        <li>8</li>
-        <li>9</li>
-        <li>10</li>
-        <li>11</li>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li><span class="active">23</span></li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li>
-    </ul>
+  <script src="mypage.js"></script>
 
 </body>
-<br>
+
 </html>

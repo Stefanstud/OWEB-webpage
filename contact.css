@@ -6,19 +6,9 @@ body {
 h1 {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 50;}
 h1.ask {margin-bottom: 0;}
 h2 {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-fieldset {
-    border-color:rgb(0, 0, 0); 
-    border:groove; 
-    border-radius: 50%;
-    width: center;
-    margin-top: 20px;
-    margin-left: 500px;
-    margin-right: 500px;
-    }
   ul.navbar {
     list-style-type: none;
-    margin:0;
-    padding: 0;
+
     overflow: hidden;
     background-color: #2D3E4E;
   }
@@ -40,7 +30,7 @@ fieldset {
     background-color: #111;
   }
   .active {
-    background-color: #1e4637;
+    background-color: #0c0e0d;
   }
 
   /* Style inputs with type="text", select elements and textareas */
@@ -77,3 +67,11 @@ input[type=text], select, textarea {
     background-color: #E8ECEB;
     padding: 20px;
   }
+  
+ img.pop:hover{transform:scale(1.15)}
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

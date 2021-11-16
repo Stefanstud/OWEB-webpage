@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Gallery</title>
+</head>
+
+<body onload="onLoad()" style="background-color: #E8ECEB;">
+
+    <ul class="navbar">
+        <li><a href="mypage.html">Home</a></li>
+        <li><a href="favthings.html">Favourite Things</a></li>
+        <li class="activel"><a href="gallery.html">Gallery</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <center>
+        <h1>Gallery</h1>
+    </center><br>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+            <center>
+                <ul class="flex-container">
+                    <li class="flex-item">
+                        <img src="https://p4.wallpaperbetter.com/wallpaper/5/168/847/portrait-display-cgi-planet-milky-way-wallpaper-preview.jpg"
+                            alt="1" width="100%" height="100%">
+                    </li>
+                    <li class="flex-item">
+                        <div style="margin-left: 0.5cm; margin-top: 2cm;">
+                            <form onsubmit="Komentiraj1()">
+                                <button type="button" onClick="onClick1()"
+                                    style="font-size:48px; background-color: white; border: none;"><i
+                                        class="fa fa-thumbs-up"></i></button>
+                                <span id="click1">0 </span>likes<br><br>
+                                <label>Comment:</label>
+                                <textarea rows="4" cols="40" id="tekst1"></textarea><br>
+                                <input  type="submit" value="Post" id="komentirav1">
+                            </form>
+                            <div id="comments1">
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </center>
+        </div>
+
+        <div class="mySlides fade">
+            <center>
+                <ul class="flex-container">
+                    <li class="flex-item">
+                        <img src="https://i.pinimg.com/originals/0e/c2/43/0ec243a6367c9682a1119eb8b9301a1f.jpg" alt="1"
+                            width="100%" height="100%">
+                    </li>
+                    <li class="flex-item">
+                        <div style="margin-left: 0.5cm; margin-top: 2cm;">
+                            <form onsubmit="Komentiraj2()">
+                                <button type="button" onClick="onClick2()"
+                                    style="font-size:48px; background-color: white; border: none;"><i
+                                        class="fa fa-thumbs-up"></i></button>
+                                <span id="click2">0 </span>likes<br><br>
+                                <label>Comment:</label>
+                                <textarea rows="4" cols="40" id="tekst2"></textarea><br>
+                                <input  type="submit" value="Post" id="komentirav2">
+                            </form>
+                            <div id="comments2">
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </center>
+        </div>
+
+        <div class="mySlides fade">
+            <center>
+                <ul class="flex-container">
+                    <li class="flex-item">
+                        <img src="https://images.wallpapersden.com/image/download/minion-laugh-wallpaper-hd_aWVmaWiUmZqaraWkpJRtZWWtZmdtZQ.jpg"
+                            alt="1" width="100%" height="100%">
+                    </li>
+                    <li class="flex-item">
+                        <div style="margin-left: 0.5cm; margin-top: 2cm;">
+                            <form onsubmit="Komentiraj3()">
+                                <button type="button" onClick="onClick3()"
+                                    style="font-size:48px; background-color: white; border: none;"><i
+                                        class="fa fa-thumbs-up"></i></button>
+                                <span id="click3">0 </span>likes<br><br>
+                                <label>Comment:</label>
+                                <textarea rows="4" cols="40" id="tekst3"></textarea><br>
+                                <input type="submit" value="Post" id="komentirav3">
+                            </form>
+                            <div id="comments3">
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </center>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <script>
+        var slideIndex=1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        let clicks1 = Number(JSON.parse(localStorage.getItem('click1'))) || 0;
+        function onClick1() {
+            clicks1 += 1;
+            document.getElementById("click1").innerHTML = clicks1 + " ";
+            localStorage.setItem('click1', clicks1);
+        }
+ 
+        let clicks2 = Number(JSON.parse(localStorage.getItem('click2'))) || 0;
+        function onClick2() {
+            clicks2 += 1;
+            document.getElementById("click2").innerHTML = clicks2 + " ";
+            localStorage.setItem('click2', clicks2);
+        }
+
+        let clicks3 = Number(JSON.parse(localStorage.getItem('click3'))) || 0;
+        function onClick3() {
+            clicks3 += 1;
+            document.getElementById("click3").innerHTML = clicks3 + " ";
+            localStorage.setItem('click3', clicks3);
+        }
+
+        const onLoad = () => {
+           /* let json1 = [];
+            let json2 = [];
+            let json3 =[];
+            let str1="";
+            let str2="";
+            let str3="";*/
+            let likeNum1 = JSON.parse(localStorage.getItem('click1')) || 0;
+            let likeNum2 = JSON.parse(localStorage.getItem('click2')) || 0;
+            let likeNum3 = JSON.parse(localStorage.getItem('click3')) || 0;
+         /*   if (localStorage.getItem('comments1')) {
+                json1 = JSON.parse(localStorage.getItem('comments1'));
+                string1 = "";
+                for (var i = 0; i < json1.length; i++) {
+                    var obj1 = json1[i];
+                    let st1 = JSON.stringify(obj1);
+                    str1 += st1;
+                    str1 += "<hr>";
+                }
+            }
+            if (localStorage.getItem('comments2')) {
+                json2 = JSON.parse(localStorage.getItem('comments2'));
+                string2 = "";
+                for (var i = 0; i < json2.length; i++) {
+                    var obj2 = json2[i];
+                    let st2 = JSON.stringify(obj2);
+                    str2 += st2;
+                    str2 += "<hr>";
+                }
+            }
+            if (localStorage.getItem('comments2')) {
+                json2 = JSON.parse(localStorage.getItem('comments2'));
+                string2 = "";
+                for (var i = 0; i < json3.length; i++) {
+                    var obj3 = json3[i];
+                    let st3 = JSON.stringify(obj3);
+                    str3 += st3;
+                    str3 += "<hr>";
+                }
+            }
+            document.getElementById("comments1").innerHTML = str1;
+            document.getElementById("comments2").innerHTML = str2;
+            document.getElementById("comments3").innerHTML = str3; */
+            document.getElementById("click1").innerHTML = likeNum1+" ";
+            document.getElementById("click2").innerHTML = likeNum2+" ";
+            document.getElementById("click3").innerHTML = likeNum3+" ";
+        }
+        let string1 = "";
+        let string2 = "";
+        let string3 = "";
+        let name = window.prompt("Enter your username");
+        function Komentiraj1() {
+            event.preventDefault();
+            let tek1 = document.getElementById("tekst1").value;
+
+            string1 += "<div>" + name + ": " + tek1 + "<hr></div>";
+            document.getElementById("comments1").innerHTML = string1;
+        }
+        function Komentiraj2() {
+            event.preventDefault();
+     
+            let tek2 = document.getElementById("tekst2").value;
+            string2 += "<div>" + name + ": " + tek2 + "<hr></div>";
+            document.getElementById("comments2").innerHTML = string2;
+        }
+        function Komentiraj3() {
+            event.preventDefault();
+
+            let tek3 = document.getElementById("tekst3").value;
+            string3 += "<div>" + name + ": " + tek3 + "<hr></div>";
+            document.getElementById("comments3").innerHTML = string3;
+        }
+
+    </script>
+</body>
+
+</html>
