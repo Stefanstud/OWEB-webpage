@@ -1,6 +1,7 @@
 <html>
 
 <head>
+ 
     <meta charset="utf-8">
     <title>Blog</title>
     <link rel="stylesheet" type="text/css" href="blog.css">
@@ -15,22 +16,33 @@
         <li><a href="contact.html">Contact</a></li>
     </ul>
 
-    <br>
-    
-    <center><h1>Write Something </h1></center>
-    
-        <div>
-            <input id="blogSbj" type="text" name="usrname" placeholder="Title" class="pos"><br><br>
-            <center>
-            <textarea rows="14" cols="100" placeholder="Write Here..." id="blogTxt"></textarea></center>
-            <form onsubmit="blogPost()" id="blog-form"><br>
-                <input class="pos" id="blogAlias" type="text" name="usrname" placeholder="Name"><br><br>
-                <button class="pos" id="submit" type="submit">Submit</button>
-            </form><br>
-        </div>
+    <a class="weatherwidget-io" href="https://forecast7.com/en/42d0021d43/skopje/" data-label_1="SKOPJE"
+        data-label_2="WEATHER" data-theme="original">SKOPJE WEATHER</a>
+    <script>
+        !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+    </script>
+    <center>
+        <h1>Write Something </h1>
+    </center>
 
-    <div id="submittedDiv">
-
+    <div>
+        <input id="blogSbj" type="text" name="usrname" placeholder="Title" class="pos"><br><br>
+        <center>
+            <textarea style="margin-left: -1.6%;"rows="14" cols="100" placeholder="Write Here..." id="blogTxt"></textarea>
+        </center>
+        <form onsubmit="blogPost()" id="blog-form"><br>
+            <input class="pos" id="blogAlias" type="text" name="usrname" placeholder="Name"><br><br>
+            <button class="pos" id="submit" type="submit">Submit</button>
+        </form><br>
+        <center>
+            <input class="stil2" type="number" id="postNumber" placeholder="Post number"><br>
+            <button class="stil" onClick="handleDelete()" style="width: 11%;
+            margin-top: 1px;">Delete</button>
+        </center>
+    </div>
+    <center>
+        <div style="width: 50%; background-color: #DFD3C3;" id="submittedDiv">
+    </center>
     </div>
 
 
@@ -42,7 +54,7 @@
             let blogSbj = document.getElementById("blogSbj").value
             let submittedDiv = document.getElementById("submittedDiv")
             let posts = JSON.parse(localStorage.getItem('posts')) || [];
-            let htmlString = "<h2 id='subject'> Title:" + blogSbj + "</h2>" + '<p id="content" style="word-wrap: break-word;">' + blogTxt + "</p>" + "<p id='ime'> Written by: " + blogAlias + "</p>"
+            let htmlString = "<h2 style=\"background-color:#6998AB;\"id='subject'> Title:" + blogSbj + "</h2>" + '<p id="content" style="word-wrap: break-word; text-align:left">' + blogTxt + "</p>" + " <b><p style=\"text-align:left\"id='ime'> Written by: " + blogAlias + "</p></b>"
             posts.push(htmlString)
             localStorage.setItem('posts', JSON.stringify(posts))
             let newString = "";
@@ -52,7 +64,30 @@
             });
             submittedDiv.innerHTML = newString
             console.log("posts = " + posts)
-        }</script>
+        }
+        const handleDelete = () => {
+            const postId = document.getElementById("postNumber").value;
+            console.log("postNumber:" + postId);
+            let posts = JSON.parse(localStorage.getItem('posts')) || [];
+            if (posts.length === 0) {
+                window.alert("You have nothing to remove!")
+                return;
+            }
+            if (postId > posts.length || postId < 1) {
+                window.alert("Wrong number!")
+                return;
+            }
+            posts.splice(postId - 1, 1);
+            let tempString = "";
+            posts.forEach(element => {
+                tempString += element
+                tempString += "<hr>"
+            })
+            console.log("posle foreach");
+            localStorage.setItem('posts', JSON.stringify(posts));
+            document.getElementById("submittedDiv").innerHTML = tempString;
+        }
+    </script>
 </body>
 
 </html>
